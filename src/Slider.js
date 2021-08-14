@@ -38,14 +38,9 @@ export class Slider {
 
   changeSlide() {
     const slideElements = document.querySelectorAll(".slide");
-    slideElements[++this.activeSlide].classList.add("active");
+    slideElements[++this.activeSlideIndex].classList.add("active");
 
-    // wait slide effect to finish and hide previous slide
-    setTimeout(() => {
-      slideElements[this.activeSlide - 1].classList.remove("active");
-    }, 400);
-
-    if (this.activeSlide < slideElements.length - 1) {
+    if (this.activeSlideIndex < slideElements.length - 1) {
       setTimeout(this.changeSlide.bind(this), this.delay);
     }
   }
@@ -60,7 +55,7 @@ export class Slider {
     this.slides.forEach((slide, index) => {
       const slideElement = new Slide(slide.text, slide.color, index === 0);
       slider.append(slideElement.render());
-      this.activeSlide = 0;
+      this.activeSlideIndex = 0;
     });
 
     renderHook.append(slider);
