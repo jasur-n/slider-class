@@ -56,7 +56,7 @@ const options = {
    * @required
    * @type {string} - css selector
    */
-  root: "#slider",
+  root: "#app",
 
   /**
    * Slider's width(no adaptive)
@@ -78,68 +78,69 @@ const options = {
   slides: [
     {
       color: "#c62828",
-      text: "RED"
+      text: "RED",
     },
     {
       color: "#ad1457",
-      text: "PINK"
+      text: "PINK",
     },
     {
       color: "#6a1b9a",
-      text: "PURPLE"
+      text: "PURPLE",
     },
     {
       color: "#4527a0",
-      text: "DEEP_PURPLE"
+      text: "DEEP_PURPLE",
     },
     {
       color: "#283593",
-      text: "INDIGO"
+      text: "INDIGO",
     },
     {
       color: "#1565c0",
-      text: "BLUE"
+      text: "BLUE",
     },
     {
       color: "#0277bd",
-      text: "LIGHT_BLUE"
+      text: "LIGHT_BLUE",
     },
     {
       color: "#00838f",
-      text: "CYAN"
+      text: "CYAN",
     },
     {
       color: "#00695c",
-      text: "TEAL"
+      text: "TEAL",
     },
     {
       color: "#2e7d32",
-      text: "GREEN"
+      text: "GREEN",
     },
     {
       color: "#558b2f",
-      text: "LIGHT_GREEN"
+      text: "LIGHT_GREEN",
     },
     {
       color: "#827717",
-      text: "LIME"
+      text: "LIME",
     },
     {
       color: "#ef6c00",
-      text: "ORANGE"
+      text: "ORANGE",
     },
     {
       color: "#d84315",
-      text: "DEEP_ORANGE"
+      text: "DEEP_ORANGE",
     },
     {
       color: "#4e342e",
-      text: "BROWN"
-    }
-  ]
+      text: "BROWN",
+    },
+  ],
 };
 
 /**
  * Slider initialization
  */
-new Slider(options);
+const slider = new Slider(options);
+slider.render();
