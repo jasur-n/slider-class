@@ -1,5 +1,7 @@
 # slider
-This is a simple slider built with JS + SCSS
+This is a simple slider built with JS + SCSS 
+
+[Live Demo](https://slider-for-maddevs.netlify.app/)
 
 ## Run Project
 
