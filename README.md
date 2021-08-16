@@ -22,5 +22,5 @@ npm run start
 To run the project in **Production mode** use:
 
 ```bash
-npm run start
+npm run build
 ```
