@@ -13,7 +13,6 @@ export class Slider {
   height: number;
   slides: { color: string; text: string }[];
   activeSlideIndex = 0;
-  activeTimer;
 
   constructor({
     delay = 2000,
@@ -51,16 +50,8 @@ export class Slider {
 
     //Change a slide after delay if the active slide is not the last one
     if (this.activeSlideIndex < slideElements.length - 1) {
-      this.activeTimer = setTimeout(this.changeSlide.bind(this), this.delay);
+      setTimeout(this.changeSlide.bind(this), this.delay);
     }
-  }
-
-  pauseSlider() {
-    clearTimeout(this.activeTimer);
-  }
-
-  resumeSlider() {
-    this.activeTimer = setTimeout(this.changeSlide.bind(this), this.delay);
   }
 
   render() {
@@ -84,6 +75,6 @@ export class Slider {
 
     renderHook.append(slider);
 
-    this.activeTimer = setTimeout(this.changeSlide.bind(this), this.delay);
+    setTimeout(this.changeSlide.bind(this), this.delay);
   }
 }
