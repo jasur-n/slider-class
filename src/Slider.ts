@@ -31,7 +31,7 @@ export class Slider {
   width: number;
   height: number;
   slides: { color: string; text: string }[];
-  activeSlideIndex: number;
+  activeSlideIndex = 0;
   activeTimer;
 
   constructor({
@@ -47,7 +47,6 @@ export class Slider {
     if (!slides) {
       throw new Error("'slides' is a required field ");
     }
-
     this.delay = delay;
     this.root = root;
     this.width = width;
@@ -60,14 +59,9 @@ export class Slider {
 
   changeSlide() {
     const slideElements = document.querySelectorAll(".slide");
-
     const previousSlideIndex = this.activeSlideIndex;
     this.activeSlideIndex = previousSlideIndex + 1;
     slideElements[this.activeSlideIndex].classList.add("active");
-
-    window.addEventListener("blur", () => {
-      console.log("blur");
-    });
 
     // Remove an active class from previous slide after swipe effect has finished
     setTimeout(() => {
@@ -90,6 +84,7 @@ export class Slider {
 
   render() {
     const renderHook = document.querySelector(this.root);
+
     const slider = document.createElement("div");
     slider.style.width = `${this.width}px`;
     slider.style.height = `${this.height}px`;
@@ -98,10 +93,10 @@ export class Slider {
     this.slides.forEach((slide, index) => {
       const slideElement = new Slide(slide.text, slide.color, index === 0);
       slider.append(slideElement.render());
-      this.activeSlideIndex = 0;
     });
 
     renderHook.append(slider);
-    setTimeout(this.changeSlide.bind(this), this.delay);
+
+    this.activeTimer = setTimeout(this.changeSlide.bind(this), this.delay);
   }
 }

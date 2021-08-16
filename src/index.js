@@ -49,7 +49,7 @@ const options = {
    * Delay for slide switching
    * @type {number}
    */
-  delay: 2000,
+  delay: 2500,
 
   /**
    * Root element css selector
@@ -145,15 +145,15 @@ const options = {
 const slider = new Slider(options);
 slider.render();
 
-//pause swipe animation when the tab becomes inactive for the cases when delay is not a whole second
+//pause swipe animation when the tab becomes inactive for the cases when delay is not in whole seconds
 //https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Timeouts_in_inactive_tabs_clamped_to_%3E1000ms
-const handleVisibility = () => {
+function handleVisibility() {
   if (document.visibilityState === "visible") {
     slider.resumeSlider();
   } else {
     slider.pauseSlider();
   }
-};
+}
 if (options.delay % 1000 !== 0) {
   document.addEventListener("visibilitychange", handleVisibility);
 }
